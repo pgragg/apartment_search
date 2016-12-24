@@ -1,0 +1,52 @@
+<table>
+	<tr>
+		<th>
+			Neighborhood
+		</th>
+		<th>
+			Address
+		</th>
+		<th>
+			Price
+		</th>
+		<th>
+			Sq. Feet
+		</th>
+		<th>
+			Mins From Megan's Work
+		</th>
+		<th>
+			Mins From Piper's Work
+		</th>
+		<th>
+			Score
+		</th>
+	</tr>
+	<% @apartments.each do |apartment| %> 
+	<tr>
+		<td>
+			<%= apartment.neighborhood %> 
+		</td>
+		<td>
+			<%= link_to apartment.view_link do %> 
+				<%= apartment.address %> 
+			<% end %> 
+		</td>
+		<td>
+			<%= apartment.price %> 
+		</td>
+		<td>
+			<%= apartment.square_footage || "---------------- " %> 
+		</td>
+		<td>
+			<%= (apartment.time_from_megans.to_f/60.0).to_i %> 
+		</td>
+		<td>
+			<%= (apartment.time_from_pipers.to_f/60.0).to_i %> 
+		</td>
+		<td>
+			<%= apartment.score.to_i %> 
+		</td>
+	</tr>
+	<% end %> 
+</table>
