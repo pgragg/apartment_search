@@ -18,7 +18,11 @@ class Streeteasy
 
 	def self.update_apartment_price(apartment)
 		return "error" unless apartment.link_address.present?
-		page = Nokogiri::HTML(open("#{BASE_URL}#{apartment.link_address}"))
+		page = Nokogiri::HTML(open("#{BASE_URL}#{apartment.link_address}")) rescue nil 
+		if page.blank? 	
+			apartment.destroy
+			return 
+		end
 		page.search('.price').each do |price|
 			price = price.content.gsub('for rent', '').gsub("\n", "").strip.gsub('$', '').gsub(',', '')
 			apartment.update_attributes(price: price)

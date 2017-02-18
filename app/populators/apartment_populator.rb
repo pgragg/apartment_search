@@ -1,4 +1,4 @@
-class ApartmentWorker
+class ApartmentPopulator
 
 	def initialize
 
