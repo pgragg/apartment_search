@@ -1,13 +1,12 @@
 class ApartmentPopulator
 
-	def initialize
-
+	def initialize(apt_search = AptSearch.new)
+		apartment_data = apt_search.scrape_apartment_data
+		@clean_data = ApartmentUpdater.clean_data(apartment_data)
 	end
 
 	def perform
-		PageIterator.iterate
-		ApartmentUpdater.update_prices
-		ApartmentUpdater.update_neighborhoods
+		PageResponseIterator.iterate(@clean_data)
 		ApartmentUpdater.update_distances
 	end
 

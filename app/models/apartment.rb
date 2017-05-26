@@ -8,20 +8,18 @@ class Apartment < ApplicationRecord
 	end
 
 	def view_link
-		"#{Streeteasy::BASE_URL}#{link_address}"
+		"http://streeteasy.com/building/#{link_address}"
 	end
 
 	def saby
-		# 172_90-highland-avenue-queens
 		address = link_address.split('/')[2]
 		[address.split('-').join('+').gsub('_','-'),'New+York'].join('+').gsub("++", '+')
 	end
 
 	def searchable_address
-		saby
-			# searchable_neighborhood = neighborhood.to_s.gsub(' ', '+')
-			# searchable_address = address.to_s.gsub(' ', '+').split('#').first
-			# [searchable_neighborhood,'New+York'].join('+').gsub("++", '+')
+			searchable_neighborhood = neighborhood.to_s.gsub(' ', '+').gsub(/'/, '%27')
+			searchable_address = address.to_s.gsub(' ', '+').split('#').first.gsub(/'/, '%27')
+			[searchable_address, searchable_neighborhood,'New+York'].join('+').gsub("++", '+')
 	end
 
 end
