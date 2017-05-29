@@ -1,0 +1,9 @@
+
+<h1>
+	<%= @apartments.count %> Apartments. 
+</h1>
+
+<%= form_tag(controller: "apartments", action: "ingest", method: "post") do %> 
+	<%= text_area_tag(:html, "", size: "24x6") %>
+	<%= submit_tag("Submit") %> 
+<% end %> 

@@ -1,3 +1,6 @@
-entrypoint: bundle exec rails s -p 80
+entrypoint: bundle exec rackup --port $PORT
 env: flex
 runtime: ruby
+env_variables:
+  RAILS_ENV: 'production'
+  SECRET_KEY_BASE: c1464b2ea11fb21524bec07d31ca05acb8408aa1ac95f36f1c1418ca501f9f6da43f3a3760eaaa73e72a8aa3aa964e641300b38701bd2c332a30ca7ecc9a0bef

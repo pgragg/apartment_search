@@ -5,6 +5,8 @@ source 'http://rubygems.org'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'mysql2'
+gem 'rack'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -16,6 +18,9 @@ gem 'coffee-rails', '~> 4.2'
 gem 'nokogiri'
 gem 'rest-client'
 gem 'mechanize'
+gem 'capybara'
+gem 'poltergeist'
+gem 'simple_form'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

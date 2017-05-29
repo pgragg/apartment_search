@@ -16,6 +16,9 @@ RSpec.describe ApartmentUpdater do
 			data = ApartmentUpdater.clean_data(stubbed_search_options)
 			expect(data.count).to eq(stubbed_search_options.count)
 		end
+		# it 'can clean data inputted from a parsed html page' do 
+			
+		# end
 		it 'feeds into the PageResponseIterator' do
 			data = ApartmentUpdater.clean_data(stubbed_search_options)
 			PageResponseIterator.iterate(data)

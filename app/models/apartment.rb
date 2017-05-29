@@ -8,7 +8,7 @@ class Apartment < ApplicationRecord
 	end
 
 	def view_link
-		"http://streeteasy.com/building/#{link_address}"
+		"http://streeteasy.com/#{link_address}"
 	end
 
 	def saby
